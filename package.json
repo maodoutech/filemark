@@ -1,0 +1,67 @@
+{
+  "name": "filemarker",
+  "displayName": "filemarker",
+  "description": "mark file",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.78.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./out/extension.js",
+  "publisher": "filemark",
+  "activationEvents": [
+    "onCommand: myExtension.toggleReadStatus"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maodoutech/filemark.git"
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "myExtension.toggleReadStatus",
+        "title": "mark"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "myExtension.toggleReadStatus",
+          "group": "navigation"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "myExtension.toggleReadStatus",
+        "key": "ctrl+k",
+        "mac": "cmd+k",
+        "when": "editorTextFocus"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@types/vscode": "^1.78.0",
+    "@typescript-eslint/eslint-plugin": "^5.59.1",
+    "@typescript-eslint/parser": "^5.59.1",
+    "@vscode/test-electron": "^2.3.0",
+    "eslint": "^8.39.0",
+    "glob": "^8.1.0",
+    "mocha": "^10.2.0",
+    "typescript": "^5.0.4",
+    "vscode-test": "^1.6.1"
+  }
+}
